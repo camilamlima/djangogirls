@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 
-Script de test para criar registros e recurar e calcular media
+Script de teste para criar registros, recuperar e calcular a média
 
 SQL de criação da tabela
 CREATE TABLE `tb_customer_account` (
@@ -73,21 +73,21 @@ cursor.execute(sql_list_customer)
 
 total = 0.0
 count = 0
-list_cusomers = []
+list_customers = []
 for nm_customer, vl_total in cursor:
 
     if vl_total > 560.0:
         total += float(vl_total)
         count += 1
 
-        list_cusomers.append((nm_customer, total))
+        list_customers.append((nm_customer, total))
 
 if count:
     print("Media Final: %s" % str(total / count))
 
 
-list_cusomers = sorted(list_cusomers, key=lambda x: x[1])
-for name in list_cusomers:
+list_customers = sorted(list_customers, key=lambda x: x[1])
+for name in list_customers:
     print(name[0])
 
 cursor.close()
